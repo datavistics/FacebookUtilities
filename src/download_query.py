@@ -62,7 +62,7 @@ def get_group_info(d_start, d_end, token, query, output_dir):
 
 
 if __name__ == '__main__':
-    with open(os.path.join(project_dir, 'authentication.json')) as f:
+    with open(os.path.join(project_dir, 'user_input.json')) as f:
         auth = json.load(f)
 
     # get dates
