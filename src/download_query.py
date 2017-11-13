@@ -8,7 +8,7 @@ import time
 import requests
 from facepy import GraphAPI
 
-from user_input import user_data
+from user_data import user_data
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
