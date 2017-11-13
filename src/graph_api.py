@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 project_dir = os.path.join(os.getcwd(), os.pardir)
 
 
-def get_group_info(d_start, d_end, token, query):
+def get_group_info(d_start, d_end, token, query, output_dir):
     graph = GraphAPI(token)
 
     # Create a pair of since and until days for the user defined range
@@ -73,3 +73,6 @@ if __name__ == '__main__':
 
     token = auth['token']
     query = auth['query']
+    output_dir = auth['output_dir']
+
+    get_group_info(d_start, d_end, token, query, output_dir)
