@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
-import logging
-import time
-from facepy import GraphAPI
-import requests
 import datetime
 import json
+import logging
 import os
+import time
+
+import requests
+from facepy import GraphAPI
+
+from user_input import user_data
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -14,6 +17,15 @@ project_dir = os.path.join(os.getcwd(), os.pardir)
 
 
 def get_group_info(d_start, d_end, token, query, output_dir):
+    """
+    Will execute a query for the duration given and save the results to json in the directory given.
+    :param d_start:
+    :param d_end:
+    :param token:
+    :param query:
+    :param output_dir:
+    :return:
+    """
     graph = GraphAPI(token)
 
     # Create a pair of since and until days for the user defined range
@@ -28,7 +40,7 @@ def get_group_info(d_start, d_end, token, query, output_dir):
         :return:
         """
         date_str = str(date_in).replace('-', '_')
-        return os.path.join(project_dir, 'data', date_str+'.json')
+        return os.path.join(output_dir, date_str + '.json')
 
     # Calculate some metrics to make sure its working
     beg_time = time.time()
@@ -62,17 +74,18 @@ def get_group_info(d_start, d_end, token, query, output_dir):
 
 
 if __name__ == '__main__':
-    with open(os.path.join(project_dir, 'user_input.json')) as f:
-        auth = json.load(f)
 
     # get dates
     # d_end = datetime.date(2017, 11, 12)
     # d_start = datetime.date(2017, 11, 11)
-    d_end = datetime.date(2015, 5, 5)
-    d_start = datetime.date(2015, 5, 4)
 
-    token = auth['token']
-    query = auth['query']
-    output_dir = auth['output_dir']
+    d_start = user_data['d_start']
+    d_end = user_data['d_end']
+    token = user_data['token']
+    query = user_data['query']
+    output_dir = user_data['output_dir']
+
+    if not output_dir:
+        output_dir = os.path.join(project_dir, 'output')
 
     get_group_info(d_start, d_end, token, query, output_dir)
