@@ -52,6 +52,8 @@ def get_group_info(d_start, d_end, token, query, output_dir):
         posts = graph.get(query, paging=True, until=str(pair[0]), since=str(pair[1]))
         file_name = gen_fn((pair[1]))
         day_list = []
+        if len(posts['data']) == 0:
+            continue
         with open(file_name, 'w', encoding='utf8') as f:
             # Get all posts and calculate metrics
             while 'paging' in posts:
@@ -64,12 +66,12 @@ def get_group_info(d_start, d_end, token, query, output_dir):
 
                 end_time = time.time()
                 round_time = end_time - start_time
-                logger.info(f'{str(pair[1])}: Crawled through {num_posts} posts in {round_time} seconds')
+                logger.info(f'\tCrawled through {num_posts} posts in {round_time} seconds')
             # Write out to file
             post_json_str = json.dumps(day_list, ensure_ascii=False)
             f.write(post_json_str)
 
-        logger.info(f'{str(pair[1])}: Crawled through a total of {num_posts} posts in {time.time()-day_time} seconds. '
+        logger.info(f'{str(pair[1])}: Crawled through a total of {num_posts} posts in {time.time()-day_time} seconds.\n'
                     f'Total time: {time.time()-beg_time}\tTotal posts: {total_posts}')
 
 
