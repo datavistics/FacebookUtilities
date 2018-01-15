@@ -67,12 +67,15 @@ def get_group_info(d_start, d_end, token, query, output_dir):
                 end_time = time.time()
                 round_time = end_time - start_time
                 logger.info(f'\tCrawled through {num_posts} posts in {round_time} seconds')
+                print(f'\tCrawled through {num_posts} posts in {round_time} seconds')
             # Write out to file
             post_json_str = json.dumps(day_list, ensure_ascii=False)
             f.write(post_json_str)
 
         logger.info(f'{str(pair[1])}: Crawled through a total of {num_posts} posts in {time.time()-day_time} seconds.\n'
                     f'Total time: {time.time()-beg_time}\tTotal posts: {total_posts}')
+        print(f'{str(pair[1])}: Crawled through a total of {num_posts} posts in {time.time()-day_time} seconds.\n'
+              f'Total time: {time.time()-beg_time}\tTotal posts: {total_posts}')
 
 
 @Gooey(program_name='Facebook Query to json',
