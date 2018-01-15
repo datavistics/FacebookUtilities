@@ -79,7 +79,7 @@ def get_group_info(d_start, d_end, token, query, output_dir):
 
 
 @Gooey(program_name='Facebook Query to json',
-       image_dir=os.path.dirname(os.path.realpath(__file__)),
+       image_dir=os.path.join(os.path.realpath(__file__), os.pardir, os.pardir, 'images'),
        required_cols=1,
        optional_cols=1)
 def parse_args():
