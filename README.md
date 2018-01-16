@@ -63,3 +63,7 @@ Please contact me if you are interested!
 ## License
 
 This project is licensed under the BSD License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgements
+
+* [README advice](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
