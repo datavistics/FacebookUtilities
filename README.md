@@ -25,7 +25,7 @@ FacebookUtilities uses python 3.6
     pip install -r requirements.txt
     ```
 
-3. Store your token in a json in `src/user_data.json`
+3. Store your [token](https://developers.facebook.com/docs/facebook-login/access-tokens/#apptokens)in a json in `src/user_data.json`
     ```json
     {
         "token": "sample_token_value"
