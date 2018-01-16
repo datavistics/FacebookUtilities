@@ -16,36 +16,37 @@ FacebookUtilities uses python 3.6
 
 1. Clone the repo
 
-```
-git clone https://github.com/datavistics/FacebookUtilities.git
-```
+    ```
+    git clone https://github.com/datavistics/FacebookUtilities.git
+    ```
 
 2. Install the requirements from the folder containing *requirements.txt*
-```
-pip install -r requirements.txt
-```
+    ```
+    pip install -r requirements.txt
+    ```
 
 3. Store your token in a json in `src/user_data.json`
-```json
-{
-    "token": "sample_token_value"
-}
-```
+    ```json
+    {
+        "token": "sample_token_value"
+    }
+    ```
 
 ## Usage
 
 1. Run the program
 
-```
-cd src
-python download_query.py
-```
+    ```
+    cd src
+    python download_query.py
+    ```
 
 2. Put the relevant data in
 
-FacebookUtilities will automatically page through multiple posts, comments, reactions, etc. 
-Facebook limits each page to ~25 items. It will store all the data in the folder of your choosing in files named 
-after the date with the format of "YYYY-MM-DD.json"
+    * **FacebookUtilities** will automatically page through multiple posts, comments, reactions, etc. 
+    Facebook limits each page to ~25 items. 
+    * It will also store all the data in the output directory of your choosing in files named 
+    after the date with the format of "YYYY-MM-DD.json"
 
 ## Built With
 
